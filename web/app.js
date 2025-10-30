@@ -1,6 +1,7 @@
 class WebMConverter {
     constructor() {
         this.jobs = new Map();
+        this.files = [];
         this.ws = null;
         this.reconnectAttempts = 0;
         
@@ -37,7 +38,7 @@ class WebMConverter {
         });
 
         // Upload button
-        this.uploadBtn.addEventListener('click', () => this.uploadFiles());
+        this.uploadBtn.addEventListener('click', () => this.handleUpload());
         
         // Download All button
         if (this.downloadAllBtn) {
@@ -154,7 +155,7 @@ class WebMConverter {
 
     connectWebSocket() {
         const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-        const wsUrl = `${protocol}//${window.location.host}/api/ws`;
+        const wsUrl = `${protocol}//${window.location.host}/ws`;
         
         this.ws = new WebSocket(wsUrl);
 
