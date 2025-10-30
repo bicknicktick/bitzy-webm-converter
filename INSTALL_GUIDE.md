@@ -60,7 +60,7 @@ go build -o webm2mp4-server main-server.go cpu-monitor.go generate-favicon.go
 ./webm2mp4-server
 ```
 
-Open browser: **http://localhost:8080**
+Open browser: **http://localhost:2424**
 
 ### **Option B: With Telegram Bot**
 
@@ -86,7 +86,7 @@ start-complete.bat
 
 ### **1. Check Web Interface**
 ```bash
-curl http://localhost:8080
+curl http://localhost:2424
 # Should return HTML content
 ```
 
@@ -96,7 +96,7 @@ curl http://localhost:8080
 ffmpeg -f lavfi -i testsrc=duration=1:size=320x240:rate=30 test.webm
 
 # Upload via curl
-curl -X POST -F "file=@test.webm" -F "rename=default" http://localhost:8080/api/upload
+curl -X POST -F "file=@test.webm" -F "rename=default" http://localhost:2424/api/upload
 ```
 
 ### **3. Check Telegram Bot**
@@ -124,10 +124,10 @@ sudo apt install ffmpeg
 ffmpeg -version
 ```
 
-### **Port 8080 already in use**
+### **Port 2424 already in use**
 ```bash
 # Find process
-lsof -i :8080
+lsof -i :2424
 
 # Kill process
 kill -9 <PID>
@@ -227,7 +227,7 @@ nano .env
 ```
 
 ### **Key Settings:**
-- `PORT`: Server port (default: 8080)
+- `PORT`: Server port (default: 2424)
 - `MAX_FILE_SIZE`: Max upload size (default: 100MB)
 - `MAX_CONCURRENT`: Parallel conversions (default: 2)
 - `CPU_LIMIT`: CPU usage limit (default: 70%)
@@ -260,7 +260,7 @@ nano .env
 ### **Firewall (UFW)**
 ```bash
 # Allow only necessary ports
-sudo ufw allow 8080/tcp
+sudo ufw allow 2424/tcp
 sudo ufw enable
 ```
 
@@ -271,7 +271,7 @@ server {
     server_name your-domain.com;
     
     location / {
-        proxy_pass http://localhost:8080;
+        proxy_pass http://localhost:2424;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection 'upgrade';
@@ -290,13 +290,13 @@ server {
 cat > test.sh << 'EOF'
 #!/bin/bash
 echo "Testing Web Interface..."
-curl -s http://localhost:8080 > /dev/null && echo "✅ Web OK" || echo "❌ Web Failed"
+curl -s http://localhost:2424 > /dev/null && echo "✅ Web OK" || echo "❌ Web Failed"
 
 echo "Testing API..."
-curl -s http://localhost:8080/api/jobs > /dev/null && echo "✅ API OK" || echo "❌ API Failed"
+curl -s http://localhost:2424/api/jobs > /dev/null && echo "✅ API OK" || echo "❌ API Failed"
 
 echo "Testing WebSocket..."
-curl -s http://localhost:8080/ws > /dev/null && echo "✅ WebSocket OK" || echo "❌ WebSocket Failed"
+curl -s http://localhost:2424/ws > /dev/null && echo "✅ WebSocket OK" || echo "❌ WebSocket Failed"
 EOF
 
 chmod +x test.sh
@@ -324,7 +324,7 @@ If you encounter issues:
 
 You'll know everything is working when:
 
-- ✅ Web interface loads at http://localhost:8080
+- ✅ Web interface loads at http://localhost:2424
 - ✅ Gold theme with "BITZYWEBM" header visible
 - ✅ Drag & drop works
 - ✅ Files convert successfully

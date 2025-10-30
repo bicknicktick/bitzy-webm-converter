@@ -25,7 +25,7 @@ import (
 )
 
 const (
-	Port          = ":8080"
+	Port          = ":2424"
 	MaxFileSize   = 100 * 1024 * 1024 // 100MB
 	MaxConcurrent = 2                  // Max concurrent conversions (limited to prevent CPU overload)
 	UploadDir     = "./web-uploads"

@@ -127,7 +127,7 @@ Create a `.env` file based on `.env.example`:
 TELEGRAM_BOT_TOKEN=your_bot_token_here
 
 # Server Configuration
-PORT=8080
+PORT=2424
 MAX_FILE_SIZE=104857600  # 100MB
 MAX_CONCURRENT=2         # Max parallel conversions
 CPU_LIMIT=70            # Max CPU usage %
