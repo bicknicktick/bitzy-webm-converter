@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BITZY WEBM - Video Converter</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=20251030-0951">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="brand">
+                <h1><span class="brand-gold">BITZY</span>WEBM</h1>
+                <div class="brand-line"></div>
+                <p class="tagline">Professional Video Conversion</p>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="column column-left">
+                <div class="section-card">
+                    <h2 class="section-title">Upload</h2>
+                    <div class="drop-zone" id="dropZone">
+                <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="17 8 12 3 7 8"></polyline>
+                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+                <p class="drop-text">Drop WebM files here or click to browse</p>
+                <p class="drop-hint">Maximum 100MB per file</p>
+                <input type="file" id="fileInput" accept=".webm" multiple hidden>
+            </div>
+
+                    <div class="rename-options" id="renameOptions" style="display: none;">
+                        <h3 class="options-title">Naming Options</h3>
+                        <div class="option-group">
+                            <label class="radio-option">
+                                <input type="radio" name="rename" value="default" checked>
+                                <span>Default</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="rename" value="custom">
+                                <span>Custom</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="rename" value="prefix">
+                                <span>Prefix</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="rename" value="date">
+                                <span>Date</span>
+                            </label>
+                        </div>
+                        <input type="text" id="customNameInput" class="custom-input" placeholder="Enter custom name" style="display: none;">
+                        <button id="uploadBtn" class="btn btn-primary">Start Conversion</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column column-right">
+                <div class="section-card">
+                    <div class="queue-header">
+                        <h2 class="section-title">Queue</h2>
+                        <div class="queue-stats">
+                            <span id="queueCount" class="stat-badge">0 files</span>
+                            <span id="processingCount" class="stat-badge gold">0/2 processing</span>
+                            <button id="downloadAllBtn" class="btn btn-secondary" style="display: none;">
+                                Download All
+                            </button>
+                        </div>
+                    </div>
+                    <div id="jobsList" class="jobs-list">
+                        <div class="empty-state">
+                            <div class="empty-icon">⊡</div>
+                            <p>No files in queue</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js?v=20251030-0951"></script>
+</body>
+</html>
