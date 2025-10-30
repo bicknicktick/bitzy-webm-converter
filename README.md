@@ -207,9 +207,11 @@ CRF_QUALITY=28         # Balance quality/size
 
 <div align="center">
 
-| Web Interface | Telegram Bot |
-|--------------|--------------|
-| ![Web UI](https://via.placeholder.com/400x300/0a0a0a/d4af37?text=Web+Interface) | ![Telegram](https://via.placeholder.com/400x300/0a0a0a/d4af37?text=Telegram+Bot) |
+### **Web Interface**
+
+<img src="ss1.png" alt="BITZY WEBM Converter Interface" width="800"/>
+
+*Professional gold-themed interface with drag & drop upload and real-time queue management*
 
 </div>
 
